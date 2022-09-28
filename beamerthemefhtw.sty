@@ -1,0 +1,144 @@
+\mode<presentation>
+% ------------------------------------------------------------------------------------------------------------------- %
+% Dependencies
+% ------------------------------------------------------------------------------------------------------------------- %
+\RequirePackage[T1]{fontenc}%
+% TikZ
+\RequirePackage{tikz}%
+\usetikzlibrary{calc}%
+\usetikzlibrary{shadows}%
+\usetikzlibrary{backgrounds}%
+\usetikzlibrary{shapes.geometric}%
+\usetikzlibrary{shapes.symbols}%
+\usetikzlibrary{patterns}%
+\usetikzlibrary{math}%
+\tikzset{
+    item shadow/.style={drop shadow={shadow xshift=0.1em,shadow yshift=-0.1em,fill=\beamer@fhtw@accent!80}},
+    enum shadow/.style={drop shadow={shadow xshift=0.15em,shadow yshift=-0.15em,fill=\beamer@fhtw@accent!80}},
+    items/.style={},
+    enums/.style={line width=0.075em,inner sep=0.2em,enum shadow, inner xsep=0,align=center,text=white,rounded corners=0.5pt},
+}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Graphics
+\RequirePackage{adjustbox}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Colors
+\RequirePackage{xcolor}%
+\RequirePackage{twcolors}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Geometry
+\RequirePackage[noframe]{showframe}%
+\geometry{%
+    marginparsep=0mm,
+    marginparwidth=0mm,
+    % footskip=1cm
+    % foot=-2cm,
+    % top=0,
+    % headsep=-2em,
+    % footskip=-10em,
+}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Misc
+\RequirePackage{xifthen}
+\RequirePackage{xparse}
+\RequirePackage{etoolbox}
+\RequirePackage{textcomp}
+% ------------------------------------------------------------------------------------------------------------------- %
+% ------------------------------------------------------------------------------------------------------------------- %
+% Options
+% ------------------------------------------------------------------------------------------------------------------- %
+\DeclareOptionBeamer{toclevel}{\def\beamer@fhtw@toclevel{#1}}%
+\DeclareOptionBeamer{stoclevel}{\def\beamer@fhtw@stoclevel{#1}}%
+\DeclareOptionBeamer{style}{\def\beamer@fhtw@style{#1}\PassOptionsToPackage{style=#1}{beamerouterthemefhtw}}%
+\DeclareOptionBeamer{framewidth}{\def\beamer@fhtw@framewidth{#1}}%
+\DeclareOptionBeamer{frameamount}{\def\beamer@fhtw@frameamount{#1}}%
+\DeclareOptionBeamer{gridsize}{\def\beamer@fhtw@gridsize{#1}}%
+
+\DeclareOptionBeamer{primary}{\def\beamer@fhtw@primary{#1}}%
+\DeclareOptionBeamer{secondary}{\def\beamer@fhtw@secondary{#1}}%
+\DeclareOptionBeamer{accent}{\def\beamer@fhtw@accent{#1}}%
+\DeclareOptionBeamer{alert}{\def\beamer@fhtw@alert{#1}}%
+
+\DeclareOptionBeamer{ocean}{\def\beamer@fhtw@primary{tw-blue}\def\beamer@fhtw@secondary{tw-blue!70!}\def\beamer@fhtw@accent{tw-blue!50}}%
+\DeclareOptionBeamer{forest}{\def\beamer@fhtw@primary{tw-green}\def\beamer@fhtw@secondary{tw-green!70!}\def\beamer@fhtw@accent{tw-green!50}}%
+\DeclareOptionBeamer{concrete}{\def\beamer@fhtw@primary{tw-gray}\def\beamer@fhtw@secondary{tw-gray!70!}\def\beamer@fhtw@accent{tw-gray!50}}%
+
+\DeclareOptionBeamer{vivid}{\def\beamer@fhtw@primary{tw-blue}\def\beamer@fhtw@secondary{tw-green}\def\beamer@fhtw@accent{tw-gray}}%
+\DeclareOptionBeamer{urban}{\def\beamer@fhtw@primary{tw-green}\def\beamer@fhtw@secondary{tw-gray}\def\beamer@fhtw@accent{tw-blue}}%
+\DeclareOptionBeamer{island}{\def\beamer@fhtw@primary{tw-green}\def\beamer@fhtw@secondary{tw-blue}\def\beamer@fhtw@accent{tw-gray}}%
+\DeclareOptionBeamer{lollipop}{\def\beamer@fhtw@primary{ttw-violett}\def\beamer@fhtw@secondary{ttw-red!70!ttw-violett!70!}\def\beamer@fhtw@accent{tw-blue!50}}%
+\DeclareOptionBeamer{metal}{\def\beamer@fhtw@primary{tw-gray}\def\beamer@fhtw@secondary{tw-blue}\def\beamer@fhtw@accent{tw-green}}%
+
+\DeclareOptionBeamer{left}{\def\beamer@fhtw@sidebarside{left}\def\beamer@fhtw@sidebarsideother{right}\PassOptionsToPackage{left}{beamerouterthemefhtw}\def\beamer@sidebarside{left}}%
+\DeclareOptionBeamer{right}{\def\beamer@fhtw@sidebarside{right}\def\beamer@fhtw@sidebarsideother{left}\PassOptionsToPackage{right}{beamerouterthemefhtw}\def\beamer@sidebarside{right}}%
+\DeclareOptionBeamer{sidebarwidth}{\def\beamer@fhtw@sidebarwidth{#1}}%
+\DeclareOptionBeamer{sidebarnavsep}{\def\beamer@fhtw@sidebarnavsep{#1}\PassOptionsToPackage{sidebarnavsep=#1}{beamerouterthemefhtw}}%
+\DeclareOptionBeamer{hideothersidebarsections}{\def\beamer@fhtw@hideothersidebarsections{\relax}}%
+\DeclareOptionBeamer{hideothersidebarsubsections}{\def\beamer@fhtw@hideothersidebarsubsections{\relax}}%
+\DeclareOptionBeamer{hideothersectionsidebarsubsections}{\def\beamer@fhtw@hideothersectionsidebarsubsections{\relax}}%
+\DeclareOptionBeamer{hideothersidebarsubsubsections}{\def\beamer@fhtw@hideothersidebarsubsubsections{\relax}}%
+\DeclareOptionBeamer{showframes}{\def\beamer@fhtw@frames{black}\PassOptionsToPackage{showframes}{beamerouterthemefhtw}}%
+\DeclareOptionBeamer{noframes}{\def\beamer@fhtw@frames{none}\PassOptionsToPackage{noframes}{beamerouterthemefhtw}}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Default Options
+\ExecuteOptionsBeamer{%
+    toclevel=3,%
+    style=fhtw,%
+    gridsize=10,%
+    vivid,%
+    alert=ttw-red,%
+    framewidth=2,%
+    frameamount=42,%
+    right,%
+    sidebarwidth=0.25\paperwidth,%
+    sidebarnavsep=0.75em,%
+    noframes,%
+    % hideothersidebarsections,%
+    % hideothersidebarsubsections,%
+    hideothersectionsidebarsubsections,%
+    hideothersidebarsubsubsections,%
+}%
+\ProcessOptionsBeamer\relax%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Commands
+% ------------------------------------------------------------------------------------------------------------------- %
+\RequirePackage{util/commands}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Theme Settings
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamersize{text margin left=8mm,text margin right=8mm,sidebar width \beamer@sidebarside=\beamer@fhtw@sidebarwidth}%
+% \setlength{\footheight}{0mm}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Utils
+% ------------------------------------------------------------------------------------------------------------------- %
+\RequirePackage{util/fhtw}%
+\RequirePackage{util/fhtw-light}%
+\RequirePackage{util/fhtw-simple}%
+\RequirePackage{util/fhtw-random}%
+\RequirePackage{util/fhtw-random-simple}%
+\RequirePackage{util/noir}%
+\RequirePackage{util/noir-bridge}%
+\RequirePackage{util/noir-bridge-color}%
+\RequirePackage{util/bridge}%
+\RequirePackage{util/simple}%
+\RequirePackage{util/complex}%
+
+\usecolortheme{fhtw}%
+\usefonttheme{fhtw}%
+\useoutertheme{fhtw}%
+\useinnertheme{fhtw}%
+
+
+\setbeamertemplate{section in toc}[fhtw]
+\setbeamertemplate{subsection in toc}[fhtw]
+\setbeamertemplate{subsubsection in toc}[fhtw]
+
+\setbeamertemplate{itemize item}[fhtw]
+\setbeamertemplate{itemize subitem}[fhtw]
+\setbeamertemplate{itemize subsubitem}[fhtw]
+
+\setbeamertemplate{enumerate item}[fhtw]
+\setbeamertemplate{enumerate subitem}[fhtw]
+\setbeamertemplate{enumerate subsubitem}[fhtw]
+
+\mode<all>

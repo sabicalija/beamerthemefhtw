@@ -1,0 +1,65 @@
+% Color Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Font Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Outer Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Navigation Symbols
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{navigation symbols}{fhtw-random-simple}{}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Logo
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{logo}{fhtw-random-simple}{}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Background
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{background}{fhtw-random-simple}{
+    \placetikzbackground{=1}{
+        \coordinate (start) at ($(current page.south west)+(0.1,0.1)$);
+        \coordinate (end)   at ($(current page.north east)+(-0.1,-0.1)$);
+        % Colored rectangles
+        \pgfmathdeclarerandomlist{colors}{%
+            {tw-blue} {tw-green} {tw-gray}
+        }%
+        \pgfmathsetmacro\frameheight{((\paperheight-0.2cm)/1cm/\beamer@fhtw@frameamount}
+        \foreach \ci in {1,2,...,\beamer@fhtw@frameamount} {
+            \pgfmathrandomitem{\randomcolor}{colors}
+            \draw[draw=none,fill=\randomcolor] ($(end)+(0,-(\ci*\frameheight)$) rectangle ++(-\beamer@fhtw@framewidth,\frameheight);
+        }
+        % Frame
+        \draw[draw=black,line width=0.2mm,anchor=north west] (start) rectangle (end);%
+    }
+}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Title Page
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{title page}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{title page}{fhtw}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Canvas
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{sidebar canvas \beamer@fhtw@sidebarside}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{sidebar canvas \beamer@fhtw@sidebarside}{fhtw}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Sections
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{section in sidebar}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{section in sidebar}{fhtw}
+% \defbeamertemplate{subsection in sidebar}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{subsection in sidebar}{fhtw}
+% \defbeamertemplate{subsubsection in sidebar}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{subsubsection in sidebar}{fhtw}
+% \defbeamertemplate{section in sidebar shaded}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{section in sidebar shaded}{fhtw}
+% \defbeamertemplate{subsection in sidebar shaded}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{subsection in sidebar shaded}{fhtw}
+% \defbeamertemplate{subsubsection in sidebar shaded}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{subsubsection in sidebar shaded}{fhtw}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{sidebar \beamer@fhtw@sidebarside}{fhtw-random-simple}{}
+\beamer@fhtw@reusestyle{fhtw-random-simple}{sidebar \beamer@fhtw@sidebarside}{fhtw}
+
+% Inner Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

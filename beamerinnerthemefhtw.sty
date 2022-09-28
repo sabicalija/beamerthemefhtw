@@ -1,0 +1,179 @@
+\mode<presentation>
+
+% ------------------------------------------------------------------------------------------------------------------- %
+% Frame Title
+% ------------------------------------------------------------------------------------------------------------------- %
+\beamer@fhtw@setstyle{frametitle}{\beamer@fhtw@style}%
+
+% ------------------------------------------------------------------------------------------------------------------- %
+% Itemize
+% ------------------------------------------------------------------------------------------------------------------- %
+\beamer@fhtw@setstyle{itemize item}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{itemize subitem}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{itemize subsubitem}{\beamer@fhtw@style}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Enumerate
+% ------------------------------------------------------------------------------------------------------------------- %
+\beamer@fhtw@setstyle{enumerate item}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{enumerate subitem}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{enumerate subsubitem}{\beamer@fhtw@style}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Description
+% ------------------------------------------------------------------------------------------------------------------- %
+% \beamer@fhtw@setstyle{description item}{\beamer@fhtw@style}
+
+% ------------------------------------------------------------------------------------------------------------------- %
+% Structure
+% ------------------------------------------------------------------------------------------------------------------- %
+% \beamer@fhtw@setstyle{structure}{\beamer@fhtw@style}%font and color only
+% ------------------------------------------------------------------------------------------------------------------- %
+% Alert
+% ------------------------------------------------------------------------------------------------------------------- %
+% \beamer@fhtw@setstyle{alerted text}{\beamer@fhtw@style}%font and color only
+% ------------------------------------------------------------------------------------------------------------------- %
+% Block
+% ------------------------------------------------------------------------------------------------------------------- %
+% \setbeamertemplate{blocks}[default]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\beamer@fhtw@setstyle{block begin}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{block end}{\beamer@fhtw@style}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Alert Block
+% ------------------------------------------------------------------------------------------------------------------- %
+\beamer@fhtw@setstyle{block alerted begin}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{block alerted end}{\beamer@fhtw@style}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Example Block
+% ------------------------------------------------------------------------------------------------------------------- %
+\beamer@fhtw@setstyle{block example begin}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{block example end}{\beamer@fhtw@style}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Theorem
+% ------------------------------------------------------------------------------------------------------------------- %
+% \setbeamertemplate{theorems}[numbered]
+% \setbeamertemplate{theorems}[normal font]
+% \setbeamertemplate{theorems}[ams style]
+\beamer@fhtw@setstyle{theorem begin}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{theorem end}{\beamer@fhtw@style}
+\beamer@fhtw@setstyle{qed symbol}{\beamer@fhtw@style}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Caption
+% ------------------------------------------------------------------------------------------------------------------- %
+\beamer@fhtw@setstyle{caption}{\beamer@fhtw@style}
+\setbeamertemplate{caption label separator}[default]%,none,colon,period,space,quad,endash
+% \beamer@fhtw@setstyle{caption label separator}{\beamer@fhtw@style}
+
+% ------------------------------------------------------------------------------------------------------------------- %
+% Custom Block Environment
+% ------------------------------------------------------------------------------------------------------------------- %
+\newenvironment<>{grayblock}[1]{%
+    \begin{actionenv}#2%
+    \def\insertblocktitle{#1}%
+    \par%
+    \mode<presentation>{%
+        \setbeamercolor{block title}{fg=white,bg=tw-gray}%
+        \setbeamercolor{block body}{fg=black,bg=tw-gray!20}%
+        \setbeamertemplate{itemize item}{%
+            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-gray!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        }%
+        \setbeamertemplate{itemize subitem}{%
+            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-gray!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+        }%
+    }%
+    \usebeamertemplate{block begin}%
+}{%
+    \par%
+    \usebeamertemplate{block end}%
+    \end{actionenv}%
+}
+
+\newenvironment<>{violettblock}[1]{%
+    \begin{actionenv}#2%
+    \def\insertblocktitle{#1}%
+    \par%
+    \mode<presentation>{%
+        \setbeamercolor{block title}{fg=white,bg=ttw-violett}%
+        \setbeamercolor{block body}{fg=black,bg=ttw-violett!20}%
+        \setbeamertemplate{itemize item}{%
+            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=ttw-violett!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        }%
+        \setbeamertemplate{itemize subitem}{%
+            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=ttw-violett!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+        }%
+    }%
+    \usebeamertemplate{block begin}%
+}{%
+    \par%
+    \usebeamertemplate{block end}%
+    \end{actionenv}%
+}
+
+% FIXME: itemsep apparently not working in this (and probably other) environment(s).
+\renewenvironment<>{exampleblock}[1]{%
+    \begin{actionenv}#2%
+    \def\insertblocktitle{#1}%
+    \par%
+    \mode<presentation>{%
+        \setbeamercolor{block title}{fg=white,bg=tw-green}%
+        \setbeamercolor{block body}{fg=black,bg=tw-green!20}%
+        \setbeamertemplate{itemize item}{%
+            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-green!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        }%
+        \setbeamertemplate{itemize subitem}{%
+            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-green!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+        }%
+    }%
+    \usebeamertemplate{block begin}%
+}{%
+    \par%
+    \usebeamertemplate{block end}%
+    \vskip-0.5em%
+    \end{actionenv}%
+}
+
+\renewenvironment<>{alertblock}[1]{%
+    \begin{actionenv}#2%
+    \def\insertblocktitle{#1}%
+    \par%
+    \mode<presentation>{%
+        \setbeamercolor{block title}{fg=white,bg=ttw-red}%
+        \setbeamercolor{block body}{fg=black,bg=ttw-red!20}%
+        \setbeamertemplate{itemize item}{%
+            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=ttw-red!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        }%
+        \setbeamertemplate{itemize subitem}{%
+            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-red!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+        }%
+    }%
+    \usebeamertemplate{block begin}%
+}{%
+    \par%
+    \usebeamertemplate{block end}%
+    \vskip-0.5em%
+    \end{actionenv}%
+}
+
+\renewenvironment<>{block}[1]{%
+    \begin{actionenv}#2%
+    \def\insertblocktitle{#1}%
+    \par%
+    \mode<presentation>{%
+        \setbeamercolor{block title}{fg=white,bg=tw-blue}%
+        \setbeamercolor{block body}{fg=black,bg=tw-blue!20}%
+        \setbeamertemplate{itemize item}{%
+            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-blue!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        }%
+        \setbeamertemplate{itemize subitem}{%
+            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-blue!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+        }%
+    }%
+    \usebeamertemplate{block begin}%
+}{%
+    \par%
+    \usebeamertemplate{block end}%
+    \vskip-0.5em%
+    \end{actionenv}%
+}
+
+
+\mode<all>

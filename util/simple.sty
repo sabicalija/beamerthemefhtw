@@ -1,0 +1,86 @@
+% Color Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Font Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Outer Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Navigation Symbols
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{navigation symbols}{simple}{}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Logo
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{logo}{simple}{%
+    \placetikzbackground[overlay,remember picture]{=1}{%
+        \node[anchor=center] at ($(current page.north west)+(0,-2)+(70pt,-40pt)$) {%
+            \includegraphics[width=60pt]{\beamer@fhtw@logofile}};%
+        }%
+}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Background
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{background}{simple}{
+    \placetikzbackground{=1}{
+        \def\gridsize{\beamer@fhtw@gridsize}
+        \pgfmathsetmacro\aratio{\paperheight/\paperwidth}
+        \pgfmathsetmacro\rwidth{\paperwidth/\gridsize/1cm}
+        
+        \pgfmathsetmacro\sgridsize{round(\gridsize*\aratio)}
+        \pgfmathsetmacro\rheight{\paperheight/\sgridsize/1cm}
+
+        \usebeamercolor[bg]{palette secondary}
+        \draw[fill=bg,rounded corners=40pt] ($(current page.north west)+(0.5,-3)$) rectangle ++(1.5\paperwidth,-80pt);
+
+        \usebeamercolor[bg]{palette primary}
+        \draw[fill=bg,rounded corners=40pt] ($(current page.north west)+(1,-2)$) rectangle ++(1.5\paperwidth,-80pt);
+
+        \draw[draw=none,fill=white] ($(current page.north west)+(0.5,-3)+(55pt,-11pt)$) circle(35pt);
+    }%
+}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Title Page
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{title page}{simple}{
+    \begin{tikzpicture}[
+        base/.style={text width=0.85\textwidth,anchor=north west,align=left}
+    ]%
+        \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);%
+        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(current page.north west)+(18ex,-2.5)$) {\usebeamerfont{title}\insertshorttitle};
+        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(current page.north west)+(18ex,-2.5)+(0,-3em)$) {\usebeamerfont{subtitle}\insertshortsubtitle};
+
+        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(current page.north west)+(18ex,-2.5)+(0,-6.5em)$) {\usebeamerfont{date}\insertdate};
+        
+        \usebeamercolor[bg]{palette tertiary}
+        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(current page.south west)+(18ex,2.75)+(0,-1em)$) {\usebeamerfont{author}\insertauthor};
+        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(current page.south west)+(18ex,2.75)+(0,-3em)$) {\usebeamerfont{mail}\insertmail};
+        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(current page.south west)+(18ex,2.75)+(0,-5em)$) {\usebeamerfont{institute}\insertinstitute};
+    \end{tikzpicture}%
+    \insertlogo
+}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Canvas
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{sidebar canvas \beamer@fhtw@sidebarside}{simple}{}
+\beamer@fhtw@reusestyle{simple}{sidebar canvas \beamer@fhtw@sidebarside}{fhtw}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Sections
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{section in sidebar}{simple}{}
+\beamer@fhtw@reusestyle{simple}{section in sidebar}{fhtw}
+% \defbeamertemplate{subsection in sidebar}{simple}{}
+\beamer@fhtw@reusestyle{simple}{subsection in sidebar}{fhtw}
+% \defbeamertemplate{subsubsection in sidebar}{simple}{}
+\beamer@fhtw@reusestyle{simple}{subsubsection in sidebar}{fhtw}
+% \defbeamertemplate{section in sidebar shaded}{simple}{}
+\beamer@fhtw@reusestyle{simple}{section in sidebar shaded}{fhtw}
+% \defbeamertemplate{subsection in sidebar shaded}{simple}{}
+\beamer@fhtw@reusestyle{simple}{subsection in sidebar shaded}{fhtw}
+% \defbeamertemplate{subsubsection in sidebar shaded}{simple}{}
+\beamer@fhtw@reusestyle{simple}{subsubsection in sidebar shaded}{fhtw}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{sidebar \beamer@fhtw@sidebarside}{simple}{}
+\beamer@fhtw@reusestyle{simple}{sidebar \beamer@fhtw@sidebarside}{fhtw}
+
+% Inner Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

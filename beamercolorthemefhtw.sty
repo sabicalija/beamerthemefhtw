@@ -1,0 +1,127 @@
+\mode<presentation>
+
+% ------------------------------------------------------------------------------------------------------------------- %
+% Customization
+% ------------------------------------------------------------------------------------------------------------------- %
+\def\primarycol{\beamer@fhtw@primary}
+\def\secondarycol{\beamer@fhtw@secondary}
+\def\accentcol{\beamer@fhtw@accent}
+\def\alertcol{\beamer@fhtw@alert}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Palette
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{palette primary}{fg=white, bg=\primarycol}
+\setbeamercolor{palette secondary}{fg=white, bg=\secondarycol}
+\setbeamercolor{palette tertiary}{fg=white, bg=\accentcol}
+\setbeamercolor{palette quaternary}{fg=white, bg=\accentcol!50}
+\setbeamercolor{palette alert}{fg=white, bg=\beamer@fhtw@alert}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Palette Shaded
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{palette primary shaded}{fg=\primarycol}
+\setbeamercolor{palette secondary shaded}{fg=\secondarycol}
+\setbeamercolor{palette tertiary shaded}{fg=\accentcol}
+\setbeamercolor{palette quaternary shaded}{fg=\accentcol!50}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Palette Sidebar
+% ------------------------------------------------------------------------------------------------------------------- %
+
+% Outer Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Title Page
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{title}{parent=palette primary shaded,fg=black}
+\setbeamercolor{subtitle}{parent=palette primary shaded,fg=black}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Sections
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{section in sidebar}{parent=palette primary}
+\setbeamercolor{subsection in sidebar}{parent=palette secondary}
+\setbeamercolor{subsubsection in sidebar}{parent=palette tertiary}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Sections (shaded)
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{section in sidebar shaded}{parent=palette primary shaded,fg=\primarycol}
+\setbeamercolor{subsection in sidebar shaded}{parent=palette secondary shaded,fg=\secondarycol}
+\setbeamercolor{subsubsection in sidebar shaded}{parent=palette tertiary shaded,fg=\accentcol}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Title
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{title in sidebar}{parent=palette secondary shaded}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Author
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{author in sidebar}{}
+
+% Inner Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Normal Text
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{normal text}{fg=black}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Frame Titles
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{frametitle}{parent=palette primary shaded}
+\setbeamercolor{framesubtitle}{parent=palette secondary shaded}
+\setbeamercolor{framesubsubtitle}{parent=palette tertiary shaded}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Table of Contents
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{section in toc}{parent=palette primary shaded}
+\setbeamercolor{subsection in toc}{parent=palette secondary shaded}
+\setbeamercolor{subsubsection in toc}{parent=palette tertiary shaded}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Itemize
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{itemize item}{parent=palette primary}
+\setbeamercolor{itemize subitem}{parent=palette secondary}
+\setbeamercolor{itemize subsubitem}{parent=palette tertiary}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Enumerate
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{enumerate item}{parent=palette primary}
+\setbeamercolor{enumerate subitem}{parent=palette secondary}
+\setbeamercolor{enumerate subsubitem}{parent=palette tertiary}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Description
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{description item}{parent=palette primary shaded}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Structure
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{structure}{fg=\primarycol}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Alert
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{alerted text}{use=palette alert,fg=palette alert.bg}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Block
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{block title}{use=palette primary,parent=palette primary,bg=palette primary.bg}
+\setbeamercolor{block body}{use={normal text,palette primary},fg=normal text.fg,bg=palette primary.bg!10}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Alert Block
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{block title alerted}{use=palette alert,parent=palette alert,bg=palette alert.bg}
+\setbeamercolor{block body alerted}{use={normal text,palette alert},fg=normal text.fg,bg=palette alert.bg!10}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Example Block
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{block title example}{use=palette secondary,parent=palette secondary,bg=palette secondary.bg}
+\setbeamercolor{block body example}{use={normal text,palette secondary},fg=normal text.fg,bg=palette secondary.bg!10}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Theorem
+% ------------------------------------------------------------------------------------------------------------------- %
+
+% ------------------------------------------------------------------------------------------------------------------- %
+% Caption
+% ------------------------------------------------------------------------------------------------------------------- %
+\setbeamercolor{caption}{}
+\setbeamercolor{caption name}{}
+
+% ------------------------------------------------------------------------------------------------------------------- %
+% Math
+% ------------------------------------------------------------------------------------------------------------------- %
+% \setbeamercolor{math text}{parent=palette primary,fg=palette primary.bg}
+
+\mode<all>

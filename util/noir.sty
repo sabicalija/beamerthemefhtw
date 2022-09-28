@@ -1,0 +1,84 @@
+% Color Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Font Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Outer Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Navigation Symbols
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{navigation symbols}{noir}{}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Logo
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{logo}{noir}{%
+    \placetikzbackground[overlay,remember picture]{=1}{%
+        \node[anchor=north east,draw=\beamer@fhtw@frames] at ($(current page.north east)+(-0.025\paperwidth,-0.05\paperheight)$) {%
+            \includegraphics[width=\beamer@fhtw@logowidth]{\beamer@fhtw@logofile}%
+        };%
+    }%
+}%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Background
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{background}{noir}{\placetikzbackground{=1}{\fitpageandcenter{fhtw-noir}}\insertlogo}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Title Page
+% ------------------------------------------------------------------------------------------------------------------- %
+\defbeamertemplate{title page}{noir}{
+    \addtocounter{framenumber}{-1}%
+
+    \ifthenelse{\equal{\beamer@fhtw@sidebarside}{left}}{%
+        \def\ident{\beamer@fhtw@sidebarwidth}%
+    }{%
+        \def\ident{4mm}%
+    }%
+
+    \begin{tikzpicture}[
+        shift={(\ident,0)},%
+        base/.style={text width=0.85\textwidth,anchor=north west,align=left}
+    ]%
+        \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);%
+        \pgfmathsetmacro\residualwidth{\paperwidth-\beamer@fhtw@logowidth*1.65}
+
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames,anchor=south west][anchor=south west]{($(current page.north west)+(0.025\paperwidth,-0.325\paperheight)+(0,3.5em)$)}{\residualwidth}{\usebeamerfont{title}\inserttitle}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames][]{($(current page.north west)+(0.025\paperwidth,-0.3\paperheight)+(0,-1em)+(0,3.5em)$)}{\residualwidth}{\usebeamerfont{subtitle}\insertsubtitle}
+        % \shadowedtext[text=white,draw=true][color=white,draw=true][0.25pt]{($(current page.north west)+(0.025\paperwidth,-0.3\paperheight)+(0,-1em)$)}{\residualwidth}{\usebeamerfont{subtitle}\insertshortsubtitle}
+
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(current page.south west)+(0.025\paperwidth,0.275\paperheight)$)}{0.9\paperwidth}{\usebeamerfont{author}\insertauthor}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(current page.south west)+(0.025\paperwidth,0.275\paperheight)-(0,2em)$)}{0.9\paperwidth}{\usebeamerfont{mail}\insertmail}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(current page.south west)+(0.025\paperwidth,0.275\paperheight)-(0,4.1em)$)}{0.5\paperwidth}{\usebeamerfont{institute}\insertinstitute}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(current page.south west)+(0.55\paperwidth,0.275\paperheight)-(0,4.1em)$)}{0.375\paperwidth}{\usebeamerfont{date}\insertdate}
+    \end{tikzpicture}%
+    \insertlogo
+}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Canvas
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{sidebar canvas \beamer@fhtw@sidebarside}{noir}{}
+\beamer@fhtw@reusestyle{noir}{sidebar canvas \beamer@fhtw@sidebarside}{fhtw}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar Sections
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{section in sidebar}{noir}{}
+\beamer@fhtw@reusestyle{noir}{section in sidebar}{fhtw}
+% \defbeamertemplate{subsection in sidebar}{noir}{}
+\beamer@fhtw@reusestyle{noir}{subsection in sidebar}{fhtw}
+% \defbeamertemplate{subsubsection in sidebar}{noir}{}
+\beamer@fhtw@reusestyle{noir}{subsubsection in sidebar}{fhtw}
+% \defbeamertemplate{section in sidebar shaded}{noir}{}
+\beamer@fhtw@reusestyle{noir}{section in sidebar shaded}{fhtw}
+% \defbeamertemplate{subsection in sidebar shaded}{noir}{}
+\beamer@fhtw@reusestyle{noir}{subsection in sidebar shaded}{fhtw}
+% \defbeamertemplate{subsubsection in sidebar shaded}{noir}{}
+\beamer@fhtw@reusestyle{noir}{subsubsection in sidebar shaded}{fhtw}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Sidebar
+% ------------------------------------------------------------------------------------------------------------------- %
+% \defbeamertemplate{sidebar \beamer@fhtw@sidebarside}{noir}{}
+\beamer@fhtw@reusestyle{noir}{sidebar \beamer@fhtw@sidebarside}{fhtw}
+
+% Inner Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------------------------------------------------------------------------------------------- %
+% Frametitle
+% ------------------------------------------------------------------------------------------------------------------- %
+\beamer@fhtw@reusestyle{noir}{frametitle}{fhtw}
