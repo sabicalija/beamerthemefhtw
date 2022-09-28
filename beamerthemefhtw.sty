@@ -47,6 +47,8 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 % Options
 % ------------------------------------------------------------------------------------------------------------------- %
+\DeclareOptionBeamer{logo}{\def\beamer@fhtw@logofile{#1}}%
+\DeclareOptionBeamer{logowidth}{\def\beamer@fhtw@logowidth{#1}}%
 \DeclareOptionBeamer{toclevel}{\def\beamer@fhtw@toclevel{#1}}%
 \DeclareOptionBeamer{stoclevel}{\def\beamer@fhtw@stoclevel{#1}}%
 \DeclareOptionBeamer{style}{\def\beamer@fhtw@style{#1}\PassOptionsToPackage{style=#1}{beamerouterthemefhtw}}%
@@ -82,6 +84,8 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 % Default Options
 \ExecuteOptionsBeamer{%
+    logo=fhtw-logo.pdf,%
+    logowidth=3cm,%
     toclevel=3,%
     style=fhtw,%
     gridsize=10,%
