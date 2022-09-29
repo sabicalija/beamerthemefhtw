@@ -3,7 +3,18 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 % Frame Title
 % ------------------------------------------------------------------------------------------------------------------- %
-\beamer@fhtw@setstyle{frametitle}{\beamer@fhtw@style}%
+% \beamer@fhtw@setstyle{frametitle}{\beamer@fhtw@style}%
+\setbeamertemplate{frametitle}[fhtwauto]
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\newcounter{sectionlevel}
+\setcounter{sectionlevel}{0}
+\let\theSection\section
+\let\theSubsection\subsection
+\let\theSubsubsection\subsubsection
+\renewcommand{\section}{\setcounter{sectionlevel}{1}\theSection}
+\renewcommand{\subsection}{\setcounter{sectionlevel}{2}\theSubsection}
+\renewcommand{\subsubsection}{\setcounter{sectionlevel}{3}\theSubsubsection}
 
 % ------------------------------------------------------------------------------------------------------------------- %
 % Itemize
@@ -175,5 +186,7 @@
     \end{actionenv}%
 }
 
+\mdfsetup{innerleftmargin=0.25em,innerrightmargin=0ex,innertopmargin=0.25em,innerbottommargin=0.25em}
+\NewDocumentCommand{\inputsource}{ O{} m m }{\begin{mdframed}\inputminted[linenos,numbersep=0.5em,highlightcolor=\secondarycolor!35,baselinestretch=0.75,#1]{#2}{#3}\end{mdframed}}
 
 \mode<all>

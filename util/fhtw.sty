@@ -309,6 +309,38 @@
     \end{tikzpicture}%
     \vspace{1em}%
 }%
+\defbeamertemplate{frametitle}{fhtwauto}{%
+    \begin{tikzpicture}[%
+        overlay,%
+        remember picture,%
+        every node/.style={%
+            draw=\beamer@fhtw@frames,%
+            text depth=0,%
+            anchor=west, text width=\paperwidth-\beamer@fhtw@sidebarwidth*1.25,text height=0.5em%
+        }%
+    ]%
+        \def\width{0.12}%
+        \useasboundingbox (0,0) rectangle (\textwidth,\width*\paperheight);%
+        \ifx\insertframetitle\@empty%
+          \ifnum\arabic{sectionlevel}=1
+            \node at (-1.5ex,-0.5em) {\usebeamercolor[fg]{frametitle}\secname};%
+          \fi
+          \ifnum\arabic{sectionlevel}=2
+            \node at (-1.5ex,-0.5em) {\usebeamercolor[fg]{frametitle}\secname~-~\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\subsecname};%
+          \fi
+          \ifnum\arabic{sectionlevel}=3
+            \node at (-1.5ex,-0.5em) {\usebeamercolor[fg]{frametitle}\secname~-~\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\subsecname~-~\usebeamercolor[fg]{framesubsubtitle}\subsubsecname};%
+          \fi
+        \else
+          \ifx\insertframesubtitle\@empty%
+            \node at (-1.5ex,-0.5em) {\insertframetitle};%
+          \else%
+            \node at (-1.5ex,-0.5em) {\usebeamercolor[fg]{frametitle}\insertframetitle~-~\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle};%
+          \fi%
+        \fi%
+    \end{tikzpicture}%
+    \vspace{1em}%
+}%
 % cf. https://golatex.de/viewtopic.php?t=22395
 % \defbeamertemplate{frametitle}{fhtw}{%
 %     \begin{tikzpicture}[%
