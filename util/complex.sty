@@ -79,13 +79,15 @@
         \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);%
         \pgfmathsetmacro\residualwidth{\paperwidth-\beamer@fhtw@logowidth*2}%
 
-        \shadowedtext[text=black,draw=\beamer@fhtw@frames,anchor=south west][text=white,anchor=south west][0.75mm]{($(current page.north west)+(0.025\paperwidth,-0.325\paperheight)$)}{\residualwidth}{\usebeamerfont{title}\inserttitle}%
-        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(current page.north west)+(0.025\paperwidth,-0.3\paperheight)+(0,-1em)$)}{\residualwidth}{\usebeamerfont{subtitle}\insertshortsubtitle}%
+        \coordinate[yshift=4em] (top) at (current page.north west);
+        \shadowedtext[text=black,draw=\beamer@fhtw@frames,anchor=south west][text=white,anchor=south west][0.75mm]{($(top)+(0.025\paperwidth,-0.325\paperheight)$)}{\residualwidth}{\usebeamerfont{title}\inserttitle}%
+        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(top)+(0.025\paperwidth,-0.3\paperheight)+(0,-1em)$)}{\residualwidth}{\usebeamerfont{subtitle}\insertsubtitle}%
 
-        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(current page.south west)+(0.025\paperwidth,0.275\paperheight)$)}{0.9\paperwidth}{\usebeamerfont{author}\insertauthor}%
-        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(current page.south west)+(0.025\paperwidth,0.275\paperheight)-(0,2em)$)}{0.9\paperwidth}{\usebeamerfont{mail}\insertmail}%
-        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(current page.south west)+(0.025\paperwidth,0.275\paperheight)-(0,4.1em)$)}{0.5\paperwidth}{\usebeamerfont{institute}\insertinstitute}%
-        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(current page.south west)+(0.55\paperwidth,0.275\paperheight)-(0,4.1em)$)}{0.375\paperwidth}{\usebeamerfont{date}\insertdate}%
+        \coordinate[yshift=4em] (bottom) at (current page.south west);
+        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(bottom)+(0.025\paperwidth,0.275\paperheight)$)}{0.9\paperwidth}{\usebeamerfont{author}\insertauthor}%
+        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(bottom)+(0.025\paperwidth,0.275\paperheight)-(0,2em)$)}{0.9\paperwidth}{\usebeamerfont{mail}\insertmail}%
+        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(bottom)+(0.025\paperwidth,0.275\paperheight)-(0,4.1em)$)}{0.5\paperwidth}{\usebeamerfont{institute}\insertinstitute}%
+        \shadowedtext[text=black,draw=\beamer@fhtw@frames][text=white][0.75mm]{($(bottom)+(0.55\paperwidth,0.275\paperheight)-(0,4.1em)$)}{0.375\paperwidth}{\usebeamerfont{date}\insertdate}%
     \end{tikzpicture}%
     \insertlogo%
 }%

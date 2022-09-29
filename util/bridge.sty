@@ -19,8 +19,35 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 % Title Page
 % ------------------------------------------------------------------------------------------------------------------- %
-% \defbeamertemplate{title page}{bridge}{}
-\beamer@fhtw@reusestyle{bridge}{title page}{noir} 
+\defbeamertemplate{title page}{bridge}{
+    \addtocounter{framenumber}{-1}%
+
+    \ifthenelse{\equal{\beamer@fhtw@sidebarside}{left}}{%
+        \def\ident{\beamer@fhtw@sidebarwidth}%
+    }{%
+        \def\ident{4mm}%
+    }%
+
+    \begin{tikzpicture}[
+        shift={(\ident,0)},%
+        base/.style={text width=0.85\textwidth,anchor=north west,align=left}
+    ]%
+        \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);%
+        \pgfmathsetmacro\residualwidth{\paperwidth-\beamer@fhtw@logowidth*1.65}
+
+        \coordinate[yshift=4em] (top) at (current page.north west);
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames,anchor=south west][anchor=south west]{($(top)+(0.025\paperwidth,-0.325\paperheight)+(0,3.5em)$)}{\residualwidth}{\usebeamerfont{title}\inserttitle}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames][]{($(top)+(0.025\paperwidth,-0.3\paperheight)+(0,-1em)+(0,3.5em)$)}{\residualwidth}{\usebeamerfont{subtitle}\insertsubtitle}
+        % \shadowedtext[text=white,draw=true][color=white,draw=true][0.25pt]{($(top)+(0.025\paperwidth,-0.3\paperheight)+(0,-1em)$)}{\residualwidth}{\usebeamerfont{subtitle}\insertshortsubtitle}
+
+        \coordinate[yshift=4.8em] (bottom) at (current page.south west);
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(bottom)+(0.025\paperwidth,0.275\paperheight)$)}{0.9\paperwidth}{\usebeamerfont{author}\insertauthor}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(bottom)+(0.025\paperwidth,0.275\paperheight)-(0,1.6em)$)}{0.9\paperwidth}{\usebeamerfont{mail}\insertmail}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(bottom)+(0.025\paperwidth,0.275\paperheight)-(0,3.1em)$)}{0.5\paperwidth}{\usebeamerfont{institute}\insertinstitute}
+        \shadowedtext[text=white,draw=\beamer@fhtw@frames]{($(bottom)+(0.55\paperwidth,0.275\paperheight)-(0,3.1em)$)}{0.375\paperwidth}{\usebeamerfont{date}\insertdate}
+    \end{tikzpicture}%
+    \insertlogo
+}
 % ------------------------------------------------------------------------------------------------------------------- %
 % Sidebar Canvas
 % ------------------------------------------------------------------------------------------------------------------- %

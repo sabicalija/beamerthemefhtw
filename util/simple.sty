@@ -45,15 +45,17 @@
         base/.style={text width=0.85\textwidth,anchor=north west,align=left}
     ]%
         \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);%
-        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(current page.north west)+(18ex,-2.5)$) {\usebeamerfont{title}\insertshorttitle};
-        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(current page.north west)+(18ex,-2.5)+(0,-3em)$) {\usebeamerfont{subtitle}\insertshortsubtitle};
+        \coordinate[xshift=18ex, yshift=-5em] (top) at (current page.north west);
+        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at (top) {\usebeamerfont{title}\insertshorttitle};
+        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(top)+(0,-3em)$) {\usebeamerfont{subtitle}\insertsubtitle};
 
-        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(current page.north west)+(18ex,-2.5)+(0,-6.5em)$) {\usebeamerfont{date}\insertdate};
+        \node[draw=\beamer@fhtw@frames,text=white,align=left,text width=0.9\textwidth,anchor=north west] at ($(top)+(0,-7.25em)$) {\usebeamerfont{date}\insertdate};
         
+        \coordinate[xshift=18ex, yshift=9em] (bottom) at (current page.south west);
         \usebeamercolor[bg]{palette tertiary}
-        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(current page.south west)+(18ex,2.75)+(0,-1em)$) {\usebeamerfont{author}\insertauthor};
-        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(current page.south west)+(18ex,2.75)+(0,-3em)$) {\usebeamerfont{mail}\insertmail};
-        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(current page.south west)+(18ex,2.75)+(0,-5em)$) {\usebeamerfont{institute}\insertinstitute};
+        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at (bottom) {\usebeamerfont{author}\insertauthor};
+        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(bottom)+(0,-2em)$) {\usebeamerfont{mail}\insertmail};
+        \node[draw=\beamer@fhtw@frames,text=bg,align=left,text width=0.9\textwidth,anchor=south west] at ($(bottom)+(0,-4em)$) {\usebeamerfont{institute}\insertinstitute};
     \end{tikzpicture}%
     \insertlogo
 }

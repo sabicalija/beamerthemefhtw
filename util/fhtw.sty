@@ -54,15 +54,17 @@
         \useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);%
 
         % \usebeamercolor[fg]{palette primary shaded}
-        \node[base,text width=\residualwidth,anchor=south west] at ($(current page.north west)+(0,-8em)$) {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle};%
+        \coordinate[yshift=4em] (top) at (current page.north west);
+        \node[base,text width=\residualwidth,anchor=south west] at ($(top)+(0,-8em)$) {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle};%
         \usebeamercolor[fg]{normaltext}%
-        \node[base,text width=\residualwidth] at ($(current page.north west)+(0,-9em)$) {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertshortsubtitle};%
+        \node[base,text width=\residualwidth] at ($(top)+(0,-9em)$) {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertshortsubtitle};%
 
+        \coordinate[yshift=4em] (bottom) at (current page.south west);
         \usebeamercolor[fg]{palette tertiary shaded}%
-        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(current page.south west)+(0,6.6em)$) {\usebeamerfont{author}\insertauthor};%
-        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(current page.south west)+(0,4.9em)$) {\usebeamerfont{mail}\insertmail};%
-        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(current page.south west)+(0,3.2em)$) {\usebeamerfont{institute}\insertinstitute};%
-        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(current page.south west)+(0,1.5em)$) {\usebeamerfont{date}\insertdate};%
+        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(bottom)+(0,6.6em)$) {\usebeamerfont{author}\insertauthor};%
+        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(bottom)+(0,4.9em)$) {\usebeamerfont{mail}\insertmail};%
+        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(bottom)+(0,3.2em)$) {\usebeamerfont{institute}\insertinstitute};%
+        \node[base,text width=\residualwidth,anchor=south west,text height=0.85em] at ($(bottom)+(0,1.5em)$) {\usebeamerfont{date}\insertdate};%
     \end{tikzpicture}%
     \insertlogo%
 }
