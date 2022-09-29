@@ -22,9 +22,17 @@
 % Graphics
 \RequirePackage{adjustbox}%
 % ------------------------------------------------------------------------------------------------------------------- %
+% Listings
+% \DeclareBoolOption{newfloat}
+\RequirePackage[outputdir={build},cache=true,kpsewhich=true]{minted}
+\RequirePackage[tikz]{mdframed}
+% ------------------------------------------------------------------------------------------------------------------- %
 % Colors
 \RequirePackage{xcolor}%
 \RequirePackage{twcolors}%
+\def\primarycolor{tw-blue}
+\def\secondarycolor{tw-green}
+\def\accentcolor{tw-gray}
 % ------------------------------------------------------------------------------------------------------------------- %
 % Geometry
 \RequirePackage[noframe]{showframe}%
@@ -40,10 +48,24 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 % Misc
 \RequirePackage{xifthen}
-\RequirePackage{xparse}
-\RequirePackage{etoolbox}
 \RequirePackage{textcomp}
+
 % ------------------------------------------------------------------------------------------------------------------- %
+% Commands
+% The xparse package provides a high-level interface for producing document-level commands.
+% In that way, it is intended as a replacement for the LATEX 2ε \newcommand macro.
+% Provides: \NewDocumentCommand
+% ------------------------------------------------------------------------------------------------------------------- %
+\RequirePackage{xparse}
+% ------------------------------------------------------------------------------------------------------------------- %
+% Hooks
+% The etoolbox package is a toolbox of programming tools geared primarily towards LaTeX class and package authors.
+% It provides LaTeX frontends to some of the new primitives provided by e-TeX as well as some generic tools which are
+% not related to e-TeX but match the profile of this package.
+% Provides: \AtBeginEnvironment
+% ------------------------------------------------------------------------------------------------------------------- %
+\RequirePackage{etoolbox}
+
 % ------------------------------------------------------------------------------------------------------------------- %
 % Options
 % ------------------------------------------------------------------------------------------------------------------- %
