@@ -78,10 +78,12 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 % Custom Block Environment
 % ------------------------------------------------------------------------------------------------------------------- %
+% \addtobeamertemplate{block begin}{\vspace*{-2em}}{}
+\addtobeamertemplate{block end}{\vspace*{0.5em}}{}
+
 \newenvironment<>{grayblock}[1]{%
     \begin{actionenv}#2%
     \def\insertblocktitle{#1}%
-    \par%
     \mode<presentation>{%
         \setbeamercolor{block title}{fg=white,bg=tw-gray}%
         \setbeamercolor{block body}{fg=black,bg=tw-gray!20}%
@@ -94,7 +96,6 @@
     }%
     \usebeamertemplate{block begin}%
 }{%
-    \par%
     \usebeamertemplate{block end}%
     \end{actionenv}%
 }
@@ -102,7 +103,6 @@
 \newenvironment<>{violettblock}[1]{%
     \begin{actionenv}#2%
     \def\insertblocktitle{#1}%
-    \par%
     \mode<presentation>{%
         \setbeamercolor{block title}{fg=white,bg=ttw-violett}%
         \setbeamercolor{block body}{fg=black,bg=ttw-violett!20}%
@@ -115,7 +115,6 @@
     }%
     \usebeamertemplate{block begin}%
 }{%
-    \par%
     \usebeamertemplate{block end}%
     \end{actionenv}%
 }
@@ -124,7 +123,6 @@
 \renewenvironment<>{exampleblock}[1]{%
     \begin{actionenv}#2%
     \def\insertblocktitle{#1}%
-    \par%
     \mode<presentation>{%
         \setbeamercolor{block title}{fg=white,bg=tw-green}%
         \setbeamercolor{block body}{fg=black,bg=tw-green!20}%
@@ -137,16 +135,13 @@
     }%
     \usebeamertemplate{block begin}%
 }{%
-    \par%
     \usebeamertemplate{block end}%
-    \vskip-0.5em%
     \end{actionenv}%
 }
 
 \renewenvironment<>{alertblock}[1]{%
     \begin{actionenv}#2%
     \def\insertblocktitle{#1}%
-    \par%
     \mode<presentation>{%
         \setbeamercolor{block title}{fg=white,bg=ttw-red}%
         \setbeamercolor{block body}{fg=black,bg=ttw-red!20}%
@@ -159,16 +154,13 @@
     }%
     \usebeamertemplate{block begin}%
 }{%
-    \par%
     \usebeamertemplate{block end}%
-    \vskip-0.5em%
     \end{actionenv}%
 }
 
 \renewenvironment<>{block}[1]{%
     \begin{actionenv}#2%
     \def\insertblocktitle{#1}%
-    \par%
     \mode<presentation>{%
         \setbeamercolor{block title}{fg=white,bg=tw-blue}%
         \setbeamercolor{block body}{fg=black,bg=tw-blue!20}%
@@ -181,9 +173,7 @@
     }%
     \usebeamertemplate{block begin}%
 }{%
-    \par%
     \usebeamertemplate{block end}%
-    \vskip-0.5em%
     \end{actionenv}%
 }
 
