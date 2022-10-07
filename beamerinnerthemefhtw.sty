@@ -178,6 +178,7 @@
 }
 
 \mdfsetup{innerleftmargin=0.25em,innerrightmargin=0ex,innertopmargin=0.25em,innerbottommargin=0.25em}
-\NewDocumentCommand{\inputsource}{ O{} m m }{\begin{mdframed}\inputminted[linenos,numbersep=0.5em,highlightcolor=\secondarycolor!35,baselinestretch=0.75,#1]{#2}{#3}\end{mdframed}}
+\setminted{linenos,numbersep=0.5em,highlightcolor=\secondarycolor!35,baselinestretch=0.75}
+\NewDocumentCommand{\inputsource}{ O{} m m }{\begin{mdframed}\inputminted[#1]{#2}{#3}\end{mdframed}}
 
 \mode<all>
