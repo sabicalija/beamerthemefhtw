@@ -80,7 +80,7 @@
 % Sidebar Navigation
 % ----------------------------------------------------------------------------------------------------------------------------
 \def\insertverticalnavigation#1{%
-  \def\navsidebaremptyline{\vspace{-1.8ex}}
+  \def\navsidebaremptyline{\vspace{-1em}}
   \vbox{%
     \def\sectionentry##1##2##3##4##5{%
       \ifnum##5=\c@part%
@@ -211,11 +211,11 @@
 \fi%
 }%
 \defbeamertemplate{section in sidebar}{fhtw}{\beamer@sidebarformat{0}{3pt}{section in sidebar}{\insertsectionhead}{text height=\beamer@fhtw@sidebarnavsep}}%
-\defbeamertemplate{subsection in sidebar}{fhtw}{\beamer@sidebarformat{1}{5pt}{subsection in sidebar}{\insertsubsectionhead}{}}%
-\defbeamertemplate{subsubsection in sidebar}{fhtw}{\beamer@sidebarformat{2}{7pt}{subsubsection in sidebar}{\insertsubsubsectionhead}{}}%
+\defbeamertemplate{subsection in sidebar}{fhtw}{\beamer@sidebarformat{1}{5pt}{subsection in sidebar}{\insertsubsectionhead}{text height=\beamer@fhtw@sidebarnavsep}}%
+\defbeamertemplate{subsubsection in sidebar}{fhtw}{\beamer@sidebarformat{2}{7pt}{subsubsection in sidebar}{\insertsubsubsectionhead}{text height=\beamer@fhtw@sidebarnavsep}}%
 \defbeamertemplate{section in sidebar shaded}{fhtw}{\beamer@sidebarformat{0}{3pt}{section in sidebar shaded}{\insertsectionhead}{text height=\beamer@fhtw@sidebarnavsep}}%
-\defbeamertemplate{subsection in sidebar shaded}{fhtw}{\beamer@sidebarformat{1}{5pt}{subsection in sidebar shaded}{\insertsubsectionhead}{}}%
-\defbeamertemplate{subsubsection in sidebar shaded}{fhtw}{\beamer@sidebarformat{2}{7pt}{subsubsection in sidebar shaded}{\insertsubsubsectionhead}{}}%
+\defbeamertemplate{subsection in sidebar shaded}{fhtw}{\beamer@sidebarformat{1}{5pt}{subsection in sidebar shaded}{\insertsubsectionhead}{text height=\beamer@fhtw@sidebarnavsep}}%
+\defbeamertemplate{subsubsection in sidebar shaded}{fhtw}{\beamer@sidebarformat{2}{7pt}{subsubsection in sidebar shaded}{\insertsubsubsectionhead}{text height=\beamer@fhtw@sidebarnavsep}}%
 % ------------------------------------------------------------------------------------------------------------------- %
 % Sidebar
 % ------------------------------------------------------------------------------------------------------------------- %
@@ -261,10 +261,11 @@
 % Table of Contents
 % ------------------------------------------------------------------------------------------------------------------- %
 \defbeamertemplate{section in toc}{fhtw}{%
+    \ifnum\inserttocsectionnumber>1\relax\vspace{1.3em}\fi%
     \begin{tikzpicture}[overlay,every node/.style={draw=\beamer@fhtw@frames,anchor=west,align=left,text height=0.75em}]%
         \usebeamercolor{section in toc}%
         \usebeamerfont{section in toc}%
-        \node[enums,text=bg,fill=fg,draw=fg!50!black,text width=1em,text depth=0,inner ysep=0.1em,text depth=0.1em] at (1em,0) {\inserttocsectionnumber};%
+        \node[enums,text=bg,fill=fg,draw=fg!50!black,text width=1.25em,text depth=0,inner ysep=0.1em,text depth=0.1em,align=center] at (1em,0) {\inserttocsectionnumber};%
         \node[text width=\textwidth] at (2.5em,0) {\inserttocsection};%
     \end{tikzpicture}%
 }%
