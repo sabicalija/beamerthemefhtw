@@ -83,102 +83,102 @@
 
 \newenvironment<>{grayblock}[1]{%
     \begin{actionenv}#2%
-    \def\insertblocktitle{#1}%
-    \mode<presentation>{%
-        \setbeamercolor{block title}{fg=white,bg=tw-gray}%
-        \setbeamercolor{block body}{fg=black,bg=tw-gray!20}%
-        \setbeamertemplate{itemize item}{%
-            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-gray!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        \def\insertblocktitle{#1}%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=tw-gray}%
+            \setbeamercolor{block body}{fg=black,bg=tw-gray!20}%
+            \setbeamertemplate{itemize item}{%
+                \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-gray!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+            }%
+            \setbeamertemplate{itemize subitem}{%
+                \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-gray!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+            }%
         }%
-        \setbeamertemplate{itemize subitem}{%
-            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-gray!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
-        }%
-    }%
-    \usebeamertemplate{block begin}%
-}{%
-    \usebeamertemplate{block end}%
+        \usebeamertemplate{block begin}%
+        }{%
+        \usebeamertemplate{block end}%
     \end{actionenv}%
 }
 
 \newenvironment<>{violettblock}[1]{%
     \begin{actionenv}#2%
-    \def\insertblocktitle{#1}%
-    \mode<presentation>{%
-        \setbeamercolor{block title}{fg=white,bg=ttw-violett}%
-        \setbeamercolor{block body}{fg=black,bg=ttw-violett!20}%
-        \setbeamertemplate{itemize item}{%
-            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=ttw-violett!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        \def\insertblocktitle{#1}%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=ttw-violett}%
+            \setbeamercolor{block body}{fg=black,bg=ttw-violett!20}%
+            \setbeamertemplate{itemize item}{%
+                \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=ttw-violett!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+            }%
+            \setbeamertemplate{itemize subitem}{%
+                \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=ttw-violett!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+            }%
         }%
-        \setbeamertemplate{itemize subitem}{%
-            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=ttw-violett!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
-        }%
-    }%
-    \usebeamertemplate{block begin}%
-}{%
-    \usebeamertemplate{block end}%
+        \usebeamertemplate{block begin}%
+        }{%
+        \usebeamertemplate{block end}%
     \end{actionenv}%
 }
 
 % FIXME: itemsep apparently not working in this (and probably other) environment(s).
 \renewenvironment<>{exampleblock}[1]{%
     \begin{actionenv}#2%
-    \def\insertblocktitle{#1}%
-    \mode<presentation>{%
-        \setbeamercolor{block title}{fg=white,bg=tw-green}%
-        \setbeamercolor{block body}{fg=black,bg=tw-green!20}%
-        \setbeamertemplate{itemize item}{%
-            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-green!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        \def\insertblocktitle{#1}%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=tw-green}%
+            \setbeamercolor{block body}{fg=black,bg=tw-green!20}%
+            \setbeamertemplate{itemize item}{%
+                \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-green!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+            }%
+            \setbeamertemplate{itemize subitem}{%
+                \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-green!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+            }%
         }%
-        \setbeamertemplate{itemize subitem}{%
-            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-green!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
-        }%
-    }%
-    \usebeamertemplate{block begin}%
-}{%
-    \usebeamertemplate{block end}%
+        \usebeamertemplate{block begin}%
+        }{%
+        \usebeamertemplate{block end}%
     \end{actionenv}%
 }
 
 \renewenvironment<>{alertblock}[1]{%
     \begin{actionenv}#2%
-    \def\insertblocktitle{#1}%
-    \mode<presentation>{%
-        \setbeamercolor{block title}{fg=white,bg=ttw-red}%
-        \setbeamercolor{block body}{fg=black,bg=ttw-red!20}%
-        \setbeamertemplate{itemize item}{%
-            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=ttw-red!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        \def\insertblocktitle{#1}%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=ttw-red}%
+            \setbeamercolor{block body}{fg=black,bg=ttw-red!20}%
+            \setbeamertemplate{itemize item}{%
+                \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=ttw-red!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+            }%
+            \setbeamertemplate{itemize subitem}{%
+                \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-red!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+            }%
         }%
-        \setbeamertemplate{itemize subitem}{%
-            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-red!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
-        }%
-    }%
-    \usebeamertemplate{block begin}%
-}{%
-    \usebeamertemplate{block end}%
+        \usebeamertemplate{block begin}%
+        }{%
+        \usebeamertemplate{block end}%
     \end{actionenv}%
 }
 
 \renewenvironment<>{block}[1]{%
     \begin{actionenv}#2%
-    \def\insertblocktitle{#1}%
-    \mode<presentation>{%
-        \setbeamercolor{block title}{fg=white,bg=tw-blue}%
-        \setbeamercolor{block body}{fg=black,bg=tw-blue!20}%
-        \setbeamertemplate{itemize item}{%
-            \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-blue!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        \def\insertblocktitle{#1}%
+        \mode<presentation>{%
+            \setbeamercolor{block title}{fg=white,bg=tw-blue}%
+            \setbeamercolor{block body}{fg=black,bg=tw-blue!20}%
+            \setbeamertemplate{itemize item}{%
+                \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-blue!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+            }%
+            \setbeamertemplate{itemize subitem}{%
+                \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-blue!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+            }%
         }%
-        \setbeamertemplate{itemize subitem}{%
-            \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-blue!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
-        }%
-    }%
-    \usebeamertemplate{block begin}%
-}{%
-    \usebeamertemplate{block end}%
+        \usebeamertemplate{block begin}%
+        }{%
+        \usebeamertemplate{block end}%
     \end{actionenv}%
 }
 
 \mdfsetup{innerleftmargin=0.25em,innerrightmargin=0ex,innertopmargin=0.25em,innerbottommargin=0.25em}
 \setminted{linenos,numbersep=0.5em,highlightcolor=\secondarycolor!35,baselinestretch=0.75}
-\NewDocumentCommand{\inputsource}{ O{} m m }{\begin{mdframed}\inputminted[#1]{#2}{#3}\end{mdframed}}
+\NewDocumentCommand{\inputsource}{ O{} m m O{} }{\begin{mdframed}[#4]\inputminted[#1]{#2}{#3}\end{mdframed}}
 
 \mode<all>
