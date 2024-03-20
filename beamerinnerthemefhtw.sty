@@ -32,6 +32,7 @@
 % Description
 % ------------------------------------------------------------------------------------------------------------------- %
 % \beamer@fhtw@setstyle{description item}{\beamer@fhtw@style}
+% \setbeamertemplate{description item}[fhtw]
 
 % ------------------------------------------------------------------------------------------------------------------- %
 % Structure
@@ -79,6 +80,9 @@
 % Custom Block Environment
 % ------------------------------------------------------------------------------------------------------------------- %
 % \addtobeamertemplate{block begin}{\vspace*{-2em}}{}
+% \BeforeBeginEnvironment{block}{\setlength{\parskip}{2em}}
+% \addtobeamertemplate{block begin}{\setlength{\parskip}{2em}}{}
+\addtobeamertemplate{block begin}{}{\setlength{\parskip}{0.5em}\vspace*{0.25em}}
 \addtobeamertemplate{block end}{\vspace*{0.5em}}{}
 
 \newenvironment<>{grayblock}[1]{%
@@ -162,16 +166,17 @@
     \begin{actionenv}#2%
         \def\insertblocktitle{#1}%
         \mode<presentation>{%
-            \setbeamercolor{block title}{fg=white,bg=tw-blue}%
-            \setbeamercolor{block body}{fg=black,bg=tw-blue!20}%
-            \setbeamertemplate{itemize item}{%
-                \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-blue!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
-            }%
-            \setbeamertemplate{itemize subitem}{%
-                \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-blue!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
-            }%
+        \setbeamercolor{block title}{fg=white,bg=tw-blue}%
+        \setbeamercolor{block body}{fg=black,bg=tw-blue!20}%
+        \setbeamertemplate{itemize item}{%
+        \tikz[overlay]\usebeamerfont{itemize item}\draw[rounded corners=1pt,fill=tw-blue!80!black,draw=none,item shadow] (-0.5em,0.1em) rectangle ++(0.5em,0.5em);%
+        }%
+        \setbeamertemplate{itemize subitem}{%
+        \tikz[overlay]\usebeamerfont{itemize subitem}\draw[fill=tw-blue!80!white,draw=none,item shadow] (-0.2em,0.35em) circle(0.22em);%
+        }%
         }%
         \usebeamertemplate{block begin}%
+        % \setlength{\parskip}{1em}
         }{%
         \usebeamertemplate{block end}%
     \end{actionenv}%
