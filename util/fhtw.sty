@@ -80,7 +80,7 @@
 % Sidebar Navigation
 % ----------------------------------------------------------------------------------------------------------------------------
 \def\insertverticalnavigation#1{%
-  \def\navsidebaremptyline{\vspace{-1em}}
+  \def\navsidebaremptyline{\vspace{-1.1em}}
   \vbox{%
     \def\sectionentry##1##2##3##4##5{%
       \ifnum##5=\c@part%
@@ -390,15 +390,15 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 \defbeamertemplate{enumerate item}{fhtw}{%
     \tikz[overlay,fill=black]%
-        \node [enums, fill=tw-blue,draw=tw-blue!50!black,text width=1em] at (-0.5em,0.45em) {\tiny \insertenumlabel};%
+        \node [enums, fill=tw-blue,draw=tw-blue!50!black,text width=1em] at (-0.5em,0.45em) {\tiny \textbf{\insertenumlabel}};%
 }%
 \defbeamertemplate{enumerate subitem}{fhtw}{%
     \tikz[overlay,fill=black]%
-        \node [enums, fill=tw-green,draw=tw-green!50!black,text width=1.5em] at (-0.75em,0.45em) {\tiny \insertenumlabel.\insertsubenumlabel};%
+        \node [enums, fill=tw-green,draw=tw-green!50!black,text width=1.5em] at (-0.75em,0.45em) {\tiny \textbf{\insertenumlabel.\insertsubenumlabel}};%
 }%
 \defbeamertemplate{enumerate subsubitem}{fhtw}{%
     \tikz[overlay,fill=black]%
-        \node [enums, fill=tw-gray,draw=tw-gray!50!black,text width=2em] at (-1em,0.45em) {\tiny \insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel};%
+        \node [enums, fill=tw-gray,draw=tw-gray!50!black,text width=2em] at (-1em,0.45em) {\tiny \textbf{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}};%
 }%
 % ------------------------------------------------------------------------------------------------------------------- %
 % Description
