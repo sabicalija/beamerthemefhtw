@@ -8,6 +8,7 @@
 \RequirePackage{tikz}%
 \usetikzlibrary{animations}%
 \usetikzlibrary{arrows.meta}%
+\usetikzlibrary{bending}
 \usetikzlibrary{calc}%
 \usetikzlibrary{fit}%
 \usetikzlibrary{shadows}%
@@ -17,6 +18,7 @@
 \usetikzlibrary{patterns}%
 \usetikzlibrary{positioning}%
 \usetikzlibrary{math}%
+\usetikzlibrary{overlay-beamer-styles}%
 \tikzset{
     item shadow/.style={drop shadow={shadow xshift=0.1em,shadow yshift=-0.1em,fill=\beamer@fhtw@accent!80}},
     enum shadow/.style={drop shadow={shadow xshift=0.15em,shadow yshift=-0.15em,fill=\beamer@fhtw@accent!80}},
@@ -38,6 +40,7 @@
 % ------------------------------------------------------------------------------------------------------------------- %
 % Colors
 \RequirePackage{xcolor}%
+\RequirePackage{booktabs}
 \RequirePackage{twcolors}%
 \def\primarycolor{tw-blue}
 \def\secondarycolor{tw-green}
